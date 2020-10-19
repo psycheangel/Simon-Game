@@ -113,11 +113,14 @@ function evented(element,callback){
 	}
 	this.play = ()=> {
 		self.switch();
+		//mute
+		if(self.c != 0 && self.round.length != 0){
 		self.sound('AUDIO',function(e){
 			e.src = self.sound.src;
 			e.play();
-		});	
+		});
 		self.animate();
+		}
 		self.step(self.c,self.element);
 		self.level();
 	};
