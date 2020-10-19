@@ -49,7 +49,7 @@ function evented(element,callback){
 	var self = this;
 	this.round = [];
 	this.c = 0;
-	
+	this.level = 0;
 	this.element = element;
 	this.sound = audio;
 	this.switch = switcher;
@@ -108,13 +108,14 @@ function evented(element,callback){
 			var began = self.c == 0 && self.round.length == 0 ? "press any key to start": self.c;
 			var h1 = document.querySelector("h1");
 			var h3 = document.querySelector("h3");
-			h1.innerHTML = "Simon Game Level "+self.round.length;
+			self.level = self.round.length;
+			h1.innerHTML = "Simon Game Level "+self.level;
 			h3.innerHTML = "Step : "+began;
 	}
 	this.play = ()=> {
 		self.switch();
 		//mute
-		if(self.c != 0 && self.round.length > 0){
+		if(self.level > 0){
 		self.sound('AUDIO',function(e){
 			e.src = self.sound.src;
 			e.play();
