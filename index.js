@@ -108,9 +108,9 @@ function evented(element,callback){
 			var began = self.c == 0 && self.round.length == 0 ? "press any key to start": self.c;
 			var h1 = document.querySelector("h1");
 			var h3 = document.querySelector("h3");
-			self.level = self.round.length;
 			h1.innerHTML = "Simon Game Level "+self.level;
 			h3.innerHTML = "Step : "+began;
+			self.level = self.round.length;
 	}
 	this.play = ()=> {
 		self.switch();
