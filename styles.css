@@ -61,6 +61,7 @@ background: url('images/kick.png') no-repeat;
 .pressed {
   box-shadow: 0 3px 4px 0 #DBEDF3;
   opacity: 0.5;
+  background-color:grey;
 }
 
 .red {
@@ -78,7 +79,6 @@ background: url('images/kick.png') no-repeat;
   text-shadow: 3px 0 #DBEDF3;
   border-radius: 15px;
   display: inline-block;
-  text-align: center;
-  margin: 10px;
+  text-align: right;
   background-color: white;
 }
