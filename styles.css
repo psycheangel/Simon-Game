@@ -15,9 +15,6 @@ footer {
   color: #DBEDF3;
   font-family: sans-serif;
 }
-div.set {
-  width:400px;
-}
 div.set > button.clicked {
 box-shadow: 5px 10px #000;
 }
