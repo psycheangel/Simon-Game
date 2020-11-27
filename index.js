@@ -114,7 +114,7 @@ function evented(element,callback){
 			var pressed = document.querySelector(".pressed" );
 			if(pressed) pressed.classList.remove("pressed","simon");
 		
-		let role = pause >= 100 ? ["pressed","simon"] : ["pressed"];
+		let role = pause > 100 ? ["pressed","simon"] : ["pressed"];
 		  activeButton.classList.add(...role);
 		  setTimeout(function() {
 		    activeButton.classList.remove(...role);
