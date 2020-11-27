@@ -70,13 +70,13 @@ function evented(element,callback){
 	this.result = (n) =>{
 			var h4 = document.querySelector("h4");
 			let begin = n  > 1 ? n -2 : 0;
-			let end  = ((self.round.length - n) >= 1) ? 2 : 0  
+			let end  = ((self.round.length - n) >= 1) ? n+2 : 0  
 			var res = [];
-			for (var i = begin; i <= end; i++) {
+			for (var i = begin; i <= end && i < self.round.length; i++) {
 				if(i >= n){
-				res[n] = i == n ? self.round[i].strike() : self.round[i].sub().strike();
+				res[i] = i == n ? self.round[i].strike() : self.round[i].sub().strike();
 				}else {
-				res[n] = self.round[i];
+				res[i] = self.round[i];
 				}  
 			}
 			h4.innerHTML = "Result : " + res.join("")+ " " + (self.round.length - n) + " more.";	
@@ -126,6 +126,8 @@ function evented(element,callback){
 			self.l = self.round.length;
 			h1.innerHTML = "Simon Game Level "+self.l;
 			h3.innerHTML = "Step : "+began;
+			if(self.round.length != 0)
+			h4.innerHTML = "";
 		
 	}
 	this.play = ()=> {
