@@ -89,6 +89,7 @@ function evented(element,callback){
 				self.randRound();
 			});
 		} else {
+			self.result(n);
 			self.reset();
 		}
 	}
