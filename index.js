@@ -74,7 +74,7 @@ function evented(element,callback){
 			var res = [];
 			for (var i = begin; i <= end; i++) {
 				if(i >= n){
-				res[n] = i == n ? self.round[i].stroke() : self.round[i].sub().stroke();
+				res[n] = i == n ? self.round[i].strike() : self.round[i].sub().strike();
 				}else {
 				res[n] = self.round[i];
 				}  
@@ -89,7 +89,6 @@ function evented(element,callback){
 				self.randRound();
 			});
 		} else {
-			self.result(n);
 			self.reset();
 		}
 	}
