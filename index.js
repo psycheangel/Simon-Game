@@ -105,19 +105,20 @@ function evented(element,callback){
 			e.src = self.sound.src;
 			e.play();
 			});
-		    self.animate(res);
+		    self.animate(res,800);
 		  }, 500);	
 	}
-	this.animate = (element)=> {
+	this.animate = (element,pause)=> {
 			var el = element ? element : self.element
 		  var activeButton = document.querySelector("." + el);
 			var pressed = document.querySelector(".pressed" );
-			if(pressed)
-			pressed.classList.remove("pressed");
-		  activeButton.classList.add("pressed");
+			if(pressed) pressed.classList.remove("pressed","simon");
+		
+		let role = pause > 100 ? ["pressed","simon"] : ["pressed"];
+		  activeButton.classList.add(...role);
 		  setTimeout(function() {
-		    activeButton.classList.remove("pressed");
-		  }, 100);
+		    activeButton.classList.remove(...role);
+		  }, pause);
 	}
 	this.level = () => {
 			var began = self.c == 0 && self.round.length == 0 ? "press any key to start": self.c;
@@ -125,6 +126,7 @@ function evented(element,callback){
 			var h4 = document.querySelector("h4");
 			var h3 = document.querySelector("h3");
 			self.l = self.round.length;
+			if(self.l > 0)
 			h1.innerHTML = "Simon Game Level "+self.l;
 			h3.innerHTML = "Step : "+began;
 			if(self.round.length != 0)
@@ -139,7 +141,7 @@ function evented(element,callback){
 			e.src = self.sound.src;
 			e.play();
 		});
-		self.animate();
+		self.animate(null,100);
 		}
 		self.step(self.c,self.element);
 		self.level();
