@@ -79,7 +79,7 @@ function evented(element,callback){
 				res[n] = self.round[i];
 				}  
 			}
-			h4.innerHTML = "Result : " + res.join("")+ " " + (self.round.length - n) + " More.";	
+			h4.innerHTML = "Result : " + res.join("")+ " " + (self.round.length - n) + " more.";	
 	}
 	this.step = (n,key)=> {
 		if(  self.round.length == 0 || key == self.round[n]){
