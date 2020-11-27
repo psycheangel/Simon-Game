@@ -122,6 +122,7 @@ function evented(element,callback){
 	this.level = () => {
 			var began = self.c == 0 && self.round.length == 0 ? "press any key to start": self.c;
 			var h1 = document.querySelector("h1");
+			var h4 = document.querySelector("h4");
 			var h3 = document.querySelector("h3");
 			self.l = self.round.length;
 			h1.innerHTML = "Simon Game Level "+self.l;
