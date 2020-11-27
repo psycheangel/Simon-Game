@@ -67,6 +67,20 @@ function evented(element,callback){
 		self.round = [];
 		self.c = 0;
 	}
+	this.result = (n) =>{
+			var h4 = document.querySelector("h4");
+			let begin = n  > 1 ? n -2 : 0;
+			let end  = ((self.round.length - n) >= 1) ? 2 : 0  
+			var res = [];
+			for (var i = begin; i <= end; i++) {
+				if(i >= n){
+				res[n] = i == n ? self.round[i].stroke() : self.round[i].sub().stroke();
+				}else {
+				res[n] = self.round[i];
+				}  
+			}
+			h4.innerHTML = "Result : " + res.join("")+ " " + (self.round.length - n) + " More.";	
+	}
 	this.step = (n,key)=> {
 		if(  self.round.length == 0 || key == self.round[n]){
 			self.c++;
@@ -75,6 +89,7 @@ function evented(element,callback){
 				self.randRound();
 			});
 		} else {
+			self.result(n);
 			self.reset();
 		}
 	}
